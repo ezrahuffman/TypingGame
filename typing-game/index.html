@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Typing Game</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="hud">
+    <h1>Typing Game</h1>
+    <div class="controls">
+      <button id="modeBtn" type="button" class="mode-btn">Mode: <span id="modeText">Normal</span></button>
+      <div class="score">Score: <span id="score">0</span></div>
+      <button id="resetBtn" type="button">Reset</button>
+    </div>
+    <div id="charOptions" class="char-options hidden">
+      <span class="option-label">Characters:</span>
+      <label class="checkbox-label">
+        <input type="checkbox" id="optLower" checked>
+        <span>a-z</span>
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="optUpper">
+        <span>A-Z</span>
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="optNumbers">
+        <span>0-9</span>
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" id="optSpecial">
+        <span>!@#$</span>
+      </label>
+    </div>
+  </div>
+
+  <div id="wordContainer" class="word-container"></div>
+
+  <div class="input-wrap">
+    <input id="input" class="input" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" placeholder="Type any word..." />
+    <p id="feedback" class="feedback" aria-live="polite"></p>
+  </div>
+
+  <script defer src="./script.js"></script>
+</body>
+</html>

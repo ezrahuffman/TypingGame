@@ -1,5 +1,6 @@
 const words=[
-  "time","year","people","way","day","man","thing","woman","life","child","world","school","state","family","student","group","country","problem","hand","part","place","case","week","company","system","program","question","work","government","number","night","point","home","water","room","mother","area","money","story","fact","month","lot","right","study","book","eye","job","word","business","issue","side","kind","head","house","service","friend","father","power","hour","game","line","end","member","law","car","city","community","name","president","team","minute","idea","kid","body","information","back","parent","face","others","level","office","door","health","person","art","war","history","party","result","change","morning","reason","research","girl","guy","moment","air","teacher","force","education"
+  "time","year","people","way","day","man","thing","woman","life","child","world","school","state","family","student","group","country","problem","hand","part","place","case","week","company","system","program","question","work","government","number","night","point","home","water","room","mother","area","money","story","fact","month","lot","right","study","book","eye","job","word","business","issue","side","kind","head","house","service","friend","father","power","hour","game","line","end","member","law","car","city","community","name","president","team","minute","idea","kid","body","information","back","parent","face","others","level","office","door","health","person","art","war","history","party","result","change","morning","reason","research","girl","guy","moment","air","teacher","force","education",
+  "phone","music","voice","paper","tree","fire","street","heart","light","brother","sister","future","window","wall","space","food","table","chair","sound","town","horse","color","church","king","court","garden","field","river","market","language","letter","report","movie","video","photo","road","travel","nature","mountain","ocean","island","weather","summer","winter","spring","season","dream","hope","plan","purpose","method","design","project","subject","record","leader","guide","choice","price","value","style","culture","future","energy","planet","sky","cloud","animal","plant","bird","fish","insect","flower","forest","desert","beach","stone","metal","paper","glass","wood","plastic","computer","phone","screen","internet","website","software","network","message","email","picture","camera","image","color","shape","size","weight","speed","distance","height","width","length","volume","amount","total","average","minimum","maximum","percent","degree","measure","scale"
 ];
 
 const charGroups={
@@ -62,8 +63,16 @@ function randomWord(){
     }
     
     return available[rand(0,available.length)];
+  }else{
+    const spawnedWords=activeWords.map(w=>w.text.toLowerCase());
+    const available=words.filter(w=>!spawnedWords.includes(w.toLowerCase()));
+    
+    if(available.length===0){
+      return words[rand(0,words.length)];
+    }
+    
+    return available[rand(0,available.length)];
   }
-  return words[rand(0,words.length)];
 }
 
 function getRectWithPadding(x,y,w,h){
